@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Menu Social Icons
-Description: Replace menu items for social sites with icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports Facebook, Twitter, LinkedIn, Google+, Github, and Pinterest.
+Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports Facebook, Twitter, LinkedIn, Google+, Github, and Pinterest.
 Version: 1.0
 Author: Brainstorm Media
 Author URI: http://brainstormmedia.com
@@ -51,7 +51,7 @@ class Storm_Menu_Social_Icons {
 		'twitter.com'     => array( 'class' => 'twitter',     'icon' => 'icon-twitter',     'icon-sign' => 'icon-twitter-sign'),
 		'linkedin.com'    => array( 'class' => 'linkedin',    'icon' => 'icon-linkedin',    'icon-sign' => 'icon-linkedin-sign'),
 		'plus.google.com' => array( 'class' => 'google-plus', 'icon' => 'icon-google-plus', 'icon-sign' => 'icon-google-plus-sign'),
-		'github.com'      => array( 'class' => 'github',      'icon' => 'icon-github-alt',  'icon-sign' => 'icon-github-sign'),
+		'github.com'      => array( 'class' => 'github',      'icon' => 'icon-github',      'icon-sign' => 'icon-github-sign'),
 		'pinterest.com'   => array( 'class' => 'pinterest',   'icon' => 'icon-pinterest',   'icon-sign' => 'icon-pinterest-sign'),
 	);
 
@@ -112,6 +112,7 @@ class Storm_Menu_Social_Icons {
 		<style>
 			/* Accessible for screen readers but hidden from view */
 			.fa-hidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+			.fa-showtext { margin-right: 5px; }
 		</style>
 		<!--[if IE 7]>
 			<link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
@@ -126,8 +127,9 @@ class Storm_Menu_Social_Icons {
 
 		$size = $this->icon_sizes[ $this->size ];
 		$icon = $network[ $this->type ];
+		$show_text = $this->hide_text ? '' : 'fa-showtext';
 
-		return "<i class='$size $icon'></i>";
+		return "<i class='$size $icon $show_text'></i>";
 
 	}
 
