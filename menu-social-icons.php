@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Social Icons in Menus
-Description: Replace links to Facebook, Twitter, etc in menus with social network logos.
-Version: 1.1
+Plugin Name: Menu Social Icons
+Description: Replace menu items for social sites with icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports Facebook, Twitter, LinkedIn, Google+, Github, and Pinterest.
+Version: 1.0
 Author: Brainstorm Media
 Author URI: http://brainstormmedia.com
 */
@@ -29,14 +29,23 @@ Author URI: http://brainstormmedia.com
  * **********************************************************************
  */
 
-add_action( 'template_redirect', create_function( '', 'new Storm_Social_Icons_in_Menus();' ) );
+add_action( 'template_redirect', create_function( '', 'new Storm_Menu_Social_Icons();' ) );
 
-class Storm_Social_Icons_in_Menus {
+class Storm_Menu_Social_Icons {
 
 	var $version = '1.0';
 
+	/**
+	 * Should we hide the original menu text, or put the icon before it?
+	 * Override with storm_social_icons_hide_text filter
+	 * 
+	 * @var bool
+	 */
 	var $hide_text = true;
 
+	/**
+	 * Array linking social site URLs with CSS classes for icons
+	 */
 	var $networks = array(
 		'facebook.com'    => array( 'class' => 'facebook',    'icon' => 'icon-facebook',    'icon-sign' => 'icon-facebook-sign'),
 		'twitter.com'     => array( 'class' => 'twitter',     'icon' => 'icon-twitter',     'icon-sign' => 'icon-twitter-sign'),
@@ -46,8 +55,15 @@ class Storm_Social_Icons_in_Menus {
 		'pinterest.com'   => array( 'class' => 'pinterest',   'icon' => 'icon-pinterest',   'icon-sign' => 'icon-pinterest-sign'),
 	);
 
+	/**
+	 * Class to apply to the <li> of all social menu items
+	 */
 	var $li_class = 'social-icon';
 
+	/**
+	 * Size options available for icon output
+	 * These are sizes that render as "pixel perfect" according to FontAwesome.
+	 */
 	var $icon_sizes = array(
 		'normal' => '',
 		'large'  => 'icon-large',
@@ -57,14 +73,20 @@ class Storm_Social_Icons_in_Menus {
 	);
 
 	/**
+	 * Size of the icons to display.
+	 * Override with storm_social_icons_size filter
+	 * 
 	 * @var string normal|large|2x|3x|4x
 	 */
-	var $size = '';
+	var $size = '2x';
 
 	/**
+	 * Display normal icons, or icons cut out of a box (sign) shape?
+	 * Override with storm_social_icons_type filter
+	 *
 	 * @var string icon|icon-sign
 	 */
-	var $type = 'icon-sign';
+	var $type = 'icon';
 
 	public function __construct() {
 
@@ -72,13 +94,16 @@ class Storm_Social_Icons_in_Menus {
 		$this->type = apply_filters( 'storm_social_icons_type', $this->type );
 		$this->hide_text = apply_filters( 'storm_social_icons_hide_text', $this->hide_text );
 
-		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css', array(), $this->version, 'all' );
+		// Load FontAwesome from NetDNA's Content Deliver Network (faster, likely to be cached)
+		// See http://www.bootstrapcdn.com/#tab_fontawesome
+		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css', array(), $this->version, 'all' );
 		add_action( 'wp_print_scripts', array( $this, 'wp_print_scripts' ) );
 
 		add_filter( 'wp_nav_menu_objects', array( $this, 'wp_nav_menu_objects' ), 5, 2 );
 
-		add_action( 'fontawesometest', array( $this, 'fontawesometest' ) );
+		// Shortcode for testing all fontawesome icons: [fontawesometest]
 		add_shortcode( 'fontawesometest', array( $this, 'shortcode_fontawesometest' ) );
+		add_action( 'fontawesometest', array( $this, 'fontawesometest' ) );
 
 	}
 
@@ -94,9 +119,11 @@ class Storm_Social_Icons_in_Menus {
 		<?php
 	}
 
+	/**
+	 * Get icon HTML with appropriate classes depending on size and icon type
+	 */
 	public function get_icon( $network ) {
 
-		// Get appropriate classes depending on size and icon type
 		$size = $this->icon_sizes[ $this->size ];
 		$icon = $network[ $this->type ];
 
@@ -104,6 +131,9 @@ class Storm_Social_Icons_in_Menus {
 
 	}
 
+	/**
+	 * Find social links in top-level menu items, add icon HTML
+	 */
 	public function wp_nav_menu_objects( $sorted_menu_items, $args ){
 
 		foreach( $sorted_menu_items as &$item ) { 
@@ -131,10 +161,16 @@ class Storm_Social_Icons_in_Menus {
 		
 	}
 
+	/**
+	 * Test output of all FontAwesome icons 
+	 */
 	public function fontawesometest( $args ) {
 		include dirname( __FILE__ ) . '/font-awesome-test.html';
 	}
 
+	/**
+	 * Shortcode to test output of all FontAwesome icons
+	 */
 	public function shortcode_fontawesometest( $args ) {
 		ob_start();
 		$this->fontawesometest();
