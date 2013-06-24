@@ -47,12 +47,29 @@ class Storm_Menu_Social_Icons {
 	 * Array linking social site URLs with CSS classes for icons
 	 */
 	var $networks = array(
-		'facebook.com'    => array( 'class' => 'facebook',    'icon' => 'icon-facebook',    'icon-sign' => 'icon-facebook-sign'),
-		'twitter.com'     => array( 'class' => 'twitter',     'icon' => 'icon-twitter',     'icon-sign' => 'icon-twitter-sign'),
-		'linkedin.com'    => array( 'class' => 'linkedin',    'icon' => 'icon-linkedin',    'icon-sign' => 'icon-linkedin-sign'),
-		'plus.google.com' => array( 'class' => 'google-plus', 'icon' => 'icon-google-plus', 'icon-sign' => 'icon-google-plus-sign'),
-		'github.com'      => array( 'class' => 'github',      'icon' => 'icon-github',      'icon-sign' => 'icon-github-sign'),
-		'pinterest.com'   => array( 'class' => 'pinterest',   'icon' => 'icon-pinterest',   'icon-sign' => 'icon-pinterest-sign'),
+		'bitbucket.org'      => array( 'class' => 'bitbucket',     'icon' => 'icon-bitbucket',     'icon-sign' => 'icon-bitbucket-sign'   ),
+		'dribbble.com'       => array( 'class' => 'dribbble',      'icon' => 'icon-dribbble',      'icon-sign' => 'icon-dribbble'         ),
+		'dropbox.com'        => array( 'class' => 'dropbox',       'icon' => 'icon-dropbox',       'icon-sign' => 'icon-dropbox'          ),
+		'facebook.com'       => array( 'class' => 'facebook',      'icon' => 'icon-facebook',      'icon-sign' => 'icon-facebook-sign'    ),
+		'flickr.com'         => array( 'class' => 'flickr',        'icon' => 'icon-flickr',        'icon-sign' => 'icon-flickr'           ),
+		'foursquare.com'     => array( 'class' => 'foursquare',    'icon' => 'icon-foursquare',    'icon-sign' => 'icon-foursquare'       ),
+		'github.com'         => array( 'class' => 'github',        'icon' => 'icon-github',        'icon-sign' => 'icon-github-sign'      ),
+		'gittip.com'         => array( 'class' => 'gittip',        'icon' => 'icon-gittip',        'icon-sign' => 'icon-gittip-sign'      ),
+		'instagr.am'         => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
+		'instagram.com'      => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
+		'linkedin.com'       => array( 'class' => 'linkedin',      'icon' => 'icon-linkedin',      'icon-sign' => 'icon-linkedin-sign'    ),
+		'pinterest.com'      => array( 'class' => 'pinterest',     'icon' => 'icon-pinterest',     'icon-sign' => 'icon-pinterest-sign'   ),
+		'plus.google.com'    => array( 'class' => 'google-plus',   'icon' => 'icon-google-plus',   'icon-sign' => 'icon-google-plus-sign' ),
+		'renren.com'         => array( 'class' => 'renren',        'icon' => 'icon-renren',        'icon-sign' => 'icon-renren'           ),
+		'stackoverflow.com'  => array( 'class' => 'stackoverflow', 'icon' => 'icon-stackoverflow', 'icon-sign' => 'icon-stackoverflow'    ),
+		'trello.com'         => array( 'class' => 'trello',        'icon' => 'icon-trello',        'icon-sign' => 'icon-trello'           ),
+		'tumblr.com'         => array( 'class' => 'tumblr',        'icon' => 'icon-tumblr',        'icon-sign' => 'icon-tumblr'           ),
+		'twitter.com'        => array( 'class' => 'twitter',       'icon' => 'icon-twitter',       'icon-sign' => 'icon-twitter-sign'     ),
+		'vk.com'             => array( 'class' => 'vk',            'icon' => 'icon-vk',            'icon-sign' => 'icon-vk'               ),
+		'weibo.com'          => array( 'class' => 'weibo',         'icon' => 'icon-weibo',         'icon-sign' => 'icon-weibo'            ),
+		'xing.com'           => array( 'class' => 'xing',          'icon' => 'icon-xing',          'icon-sign' => 'icon-xing'             ),
+		'youtu.be'           => array( 'class' => 'youtube',       'icon' => 'icon-youtube',       'icon-sign' => 'icon-youtube-sign'     ),
+		'youtube.com'        => array( 'class' => 'youtube',       'icon' => 'icon-youtube',       'icon-sign' => 'icon-youtube-sign'     ),
 	);
 
 	/**
@@ -94,9 +111,7 @@ class Storm_Menu_Social_Icons {
 		$this->type = apply_filters( 'storm_social_icons_type', $this->type );
 		$this->hide_text = apply_filters( 'storm_social_icons_hide_text', $this->hide_text );
 
-		// Load FontAwesome from NetDNA's Content Deliver Network (faster, likely to be cached)
-		// See http://www.bootstrapcdn.com/#tab_fontawesome
-		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css', array(), $this->version, 'all' );
+		add_action( 'wp_print_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'wp_print_scripts', array( $this, 'wp_print_scripts' ) );
 
 		add_filter( 'wp_nav_menu_objects', array( $this, 'wp_nav_menu_objects' ), 5, 2 );
@@ -107,6 +122,24 @@ class Storm_Menu_Social_Icons {
 
 	}
 
+	/**
+	 * Load FontAwesome from NetDNA's Content Deliver Network (faster, likely to be cached)
+	 * @see http://www.bootstrapcdn.com/#tab_fontawesome
+	 */
+	public function wp_enqueue_scripts() {
+		global $wp_styles;
+
+		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'fontawesome-ie', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), $this->version );
+
+		// Add Internet Explorer conditional comment
+		$wp_styles->add_data( 'fontawesome-ie', 'conditional', 'IE 7' );
+	}
+
+	/**
+	 * Hide text visually, but keep available for screen readers.
+	 * Just 2 lines of stylesheet, so loading inline rather than adding another HTTP request.
+	 */
 	public function wp_print_scripts() {
 		?>
 		<style>
@@ -114,9 +147,6 @@ class Storm_Menu_Social_Icons {
 			.fa-hidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
 			.fa-showtext { margin-right: 5px; }
 		</style>
-		<!--[if IE 7]>
-			<link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
-		<![endif]-->
 		<?php
 	}
 
