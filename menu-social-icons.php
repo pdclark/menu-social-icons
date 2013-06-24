@@ -29,7 +29,7 @@ Author URI: http://brainstormmedia.com
  * **********************************************************************
  */
 
-add_action( 'template_redirect', create_function( '', 'new Storm_Menu_Social_Icons();' ) );
+add_action( 'template_redirect', create_function( '', 'global $storm_menu_social_icons; $storm_menu_social_icons = new Storm_Menu_Social_Icons();' ) );
 
 class Storm_Menu_Social_Icons {
 
@@ -61,7 +61,7 @@ class Storm_Menu_Social_Icons {
 		'pinterest.com'      => array( 'class' => 'pinterest',     'icon' => 'icon-pinterest',     'icon-sign' => 'icon-pinterest-sign'   ),
 		'plus.google.com'    => array( 'class' => 'google-plus',   'icon' => 'icon-google-plus',   'icon-sign' => 'icon-google-plus-sign' ),
 		'renren.com'         => array( 'class' => 'renren',        'icon' => 'icon-renren',        'icon-sign' => 'icon-renren'           ),
-		'stackoverflow.com'  => array( 'class' => 'stackoverflow', 'icon' => 'icon-stackoverflow', 'icon-sign' => 'icon-stackoverflow'    ),
+		'stackoverflow.com'  => array( 'class' => 'stackexchange', 'icon' => 'icon-stackexchange', 'icon-sign' => 'icon-stackexchange'    ),
 		'trello.com'         => array( 'class' => 'trello',        'icon' => 'icon-trello',        'icon-sign' => 'icon-trello'           ),
 		'tumblr.com'         => array( 'class' => 'tumblr',        'icon' => 'icon-tumblr',        'icon-sign' => 'icon-tumblr'           ),
 		'twitter.com'        => array( 'class' => 'twitter',       'icon' => 'icon-twitter',       'icon-sign' => 'icon-twitter-sign'     ),
