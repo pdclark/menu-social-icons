@@ -94,9 +94,7 @@ class Storm_Menu_Social_Icons {
 		$this->type = apply_filters( 'storm_social_icons_type', $this->type );
 		$this->hide_text = apply_filters( 'storm_social_icons_hide_text', $this->hide_text );
 
-		// Load FontAwesome from NetDNA's Content Deliver Network (faster, likely to be cached)
-		// See http://www.bootstrapcdn.com/#tab_fontawesome
-		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), $this->version, 'all' );
+		add_action( 'wp_print_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'wp_print_scripts', array( $this, 'wp_print_scripts' ) );
 
 		add_filter( 'wp_nav_menu_objects', array( $this, 'wp_nav_menu_objects' ), 5, 2 );
@@ -107,6 +105,24 @@ class Storm_Menu_Social_Icons {
 
 	}
 
+	/**
+	 * Load FontAwesome from NetDNA's Content Deliver Network (faster, likely to be cached)
+	 * @see http://www.bootstrapcdn.com/#tab_fontawesome
+	 */
+	public function wp_enqueue_scripts() {
+		global $wp_styles;
+
+		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'fontawesome-ie', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), $this->version );
+
+		// Add Internet Explorer conditional comment
+		$wp_styles->add_data( 'fontawesome-ie', 'conditional', 'IE 7' );
+	}
+
+	/**
+	 * Hide text visually, but keep available for screen readers.
+	 * Just 2 lines of stylesheet, so loading inline rather than adding another HTTP request.
+	 */
 	public function wp_print_scripts() {
 		?>
 		<style>
@@ -114,9 +130,6 @@ class Storm_Menu_Social_Icons {
 			.fa-hidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
 			.fa-showtext { margin-right: 5px; }
 		</style>
-		<!--[if IE 7]>
-			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
-		<![endif]-->
 		<?php
 	}
 
