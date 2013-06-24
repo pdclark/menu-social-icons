@@ -2,7 +2,7 @@
 /*
 Plugin Name: Menu Social Icons
 Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports Facebook, Twitter, LinkedIn, Google+, Github, and Pinterest.
-Version: 1.0
+Version: 1.1
 Author: Brainstorm Media
 Author URI: http://brainstormmedia.com
 */
@@ -33,7 +33,7 @@ add_action( 'template_redirect', create_function( '', 'global $storm_menu_social
 
 class Storm_Menu_Social_Icons {
 
-	var $version = '1.0';
+	var $version = '1.1';
 
 	/**
 	 * Should we hide the original menu text, or put the icon before it?
