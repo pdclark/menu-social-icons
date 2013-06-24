@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Menu Social Icons
-Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports Facebook, Twitter, LinkedIn, Google+, Github, and Pinterest.
-Version: 1.1
+Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports: Bitbucket, Dribbble, Dropbox, Flickr, Foursquare, Gittip, Instagram, RenRen, Stack Overflow, Trello, Tumblr, VK, Weibo, Xing, and YouTube.
+Version: 1.1.1
 Author: Brainstorm Media
 Author URI: http://brainstormmedia.com
 */
