@@ -96,7 +96,7 @@ class Storm_Menu_Social_Icons {
 
 		// Load FontAwesome from NetDNA's Content Deliver Network (faster, likely to be cached)
 		// See http://www.bootstrapcdn.com/#tab_fontawesome
-		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), $this->version, 'all' );
 		add_action( 'wp_print_scripts', array( $this, 'wp_print_scripts' ) );
 
 		add_filter( 'wp_nav_menu_objects', array( $this, 'wp_nav_menu_objects' ), 5, 2 );
@@ -115,7 +115,7 @@ class Storm_Menu_Social_Icons {
 			.fa-showtext { margin-right: 5px; }
 		</style>
 		<!--[if IE 7]>
-			<link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
 		<![endif]-->
 		<?php
 	}
