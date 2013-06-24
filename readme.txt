@@ -51,8 +51,8 @@ Various sizes for icons. Pick one. (Default is 2x).
 
 1. Menu without the plugin activated.
 2. Plugin activated with default settings.
-3. Hidden text disabled.
-4. Alternative "icon-sign" display.
+3. Alternative "icon-sign" display.
+4. Hidden text disabled.
 5. "normal" icon size
 5. "4x" icon size
 
