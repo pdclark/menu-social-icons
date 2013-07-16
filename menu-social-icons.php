@@ -58,7 +58,7 @@ class Storm_Menu_Social_Icons {
 		'instagr.am'         => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
 		'instagram.com'      => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
 		'linkedin.com'       => array( 'class' => 'linkedin',      'icon' => 'icon-linkedin',      'icon-sign' => 'icon-linkedin-sign'    ),
-		'mailto:'            => array( 'class' => 'envelope',      'icon' => 'icon-envelope-alt',  'icon-sign' => 'icon-envelope'         ),
+		'mailto:'            => array( 'class' => 'envelope',      'icon' => 'icon-envelope',      'icon-sign' => 'icon-envelope-alt'     ),
 		'pinterest.com'      => array( 'class' => 'pinterest',     'icon' => 'icon-pinterest',     'icon-sign' => 'icon-pinterest-sign'   ),
 		'plus.google.com'    => array( 'class' => 'google-plus',   'icon' => 'icon-google-plus',   'icon-sign' => 'icon-google-plus-sign' ),
 		'renren.com'         => array( 'class' => 'renren',        'icon' => 'icon-renren',        'icon-sign' => 'icon-renren'           ),
