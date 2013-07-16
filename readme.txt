@@ -5,7 +5,7 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.5.2
-Stable tag: 1.1.1
+Stable tag: 1.2
 
 Add social icons to your WordPress menu items automatically.
 
@@ -29,6 +29,7 @@ http://www.youtube.com/watch?v=AS3hLeyV4S0
 * gittip.com
 * instagram.com
 * linkedin.com
+* mailto: (email links)
 * pinterest.com
 * plus.google.com
 * renren.com
@@ -59,6 +60,18 @@ Various sizes for icons. Pick one. (Default is 2x).
     add_filter( 'storm_social_icons_size', create_function( '', 'return "3x";' ) );
     add_filter( 'storm_social_icons_size', create_function( '', 'return "4x";' ) );
 
+Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for other URLs. For example, an RSS feed:
+
+    add_filter( 'storm_social_icons_networks', 'storm_social_icons_networks');
+    function storm_social_icons_networks( $networks ) {
+        $extra_icons = array (
+	        '/feed' => array( 'class' => 'rss', 'icon' => 'icon-rss', 'icon-sign' => 'icon-rss-sign' ),
+        );
+        $extra_icons = array_merge( $networks, $extra_icons );
+        return $extra_icons;
+    }
+
+
 == Installation ==
 
 1. Search for "Menu Social Icons" under `WordPress Admin > Plugins > Add New`
@@ -85,6 +98,11 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.2 =
+* Add filter for custom icons and URLs.
+* Add icon for `mailto:` links.
+* [Thanks to mmcginnis](http://wordpress.org/support/topic/just-works-40) for both of these changes.
+
 = 1.1 =
 * Upgrade to FontAwesome 3.2.1
 * Add lots of new site icons: bitbucket.org, dribbble.com, dropbox.com, flickr.com, foursquare.com, gittip.com, instagram.com, renren.com, stackoverflow.com, trello.com, tumblr.com, vk.com, weibo.com, xing.com, youtube.com
@@ -93,6 +111,11 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 * Initial public release.
 
 == Upgrade Notice ==
+
+**1.2**
+* Add filter for custom icons and URLs.
+* Add icon for `mailto:` links.
+* [Thanks to mmcginnis](http://wordpress.org/support/topic/just-works-40) for both of these changes.
 
 **1.1**
 Add lots of new networks: bitbucket.org, dribbble.com, dropbox.com, flickr.com, foursquare.com, gittip.com, instagram.com, renren.com, stackoverflow.com, trello.com, tumblr.com, vk.com, weibo.com, xing.com, youtube.com

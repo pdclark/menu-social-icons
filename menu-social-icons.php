@@ -2,7 +2,7 @@
 /*
 Plugin Name: Menu Social Icons
 Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports: Bitbucket, Dribbble, Dropbox, Flickr, Foursquare, Gittip, Instagram, RenRen, Stack Overflow, Trello, Tumblr, VK, Weibo, Xing, and YouTube.
-Version: 1.1.1
+Version: 1.2
 Author: Brainstorm Media
 Author URI: http://brainstormmedia.com
 */
@@ -33,7 +33,7 @@ add_action( 'template_redirect', create_function( '', 'global $storm_menu_social
 
 class Storm_Menu_Social_Icons {
 
-	var $version = '1.1';
+	var $version = '1.2';
 
 	/**
 	 * Should we hide the original menu text, or put the icon before it?
@@ -58,6 +58,7 @@ class Storm_Menu_Social_Icons {
 		'instagr.am'         => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
 		'instagram.com'      => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
 		'linkedin.com'       => array( 'class' => 'linkedin',      'icon' => 'icon-linkedin',      'icon-sign' => 'icon-linkedin-sign'    ),
+		'mailto:'            => array( 'class' => 'envelope',      'icon' => 'icon-envelope',      'icon-sign' => 'icon-envelope-alt'     ),
 		'pinterest.com'      => array( 'class' => 'pinterest',     'icon' => 'icon-pinterest',     'icon-sign' => 'icon-pinterest-sign'   ),
 		'plus.google.com'    => array( 'class' => 'google-plus',   'icon' => 'icon-google-plus',   'icon-sign' => 'icon-google-plus-sign' ),
 		'renren.com'         => array( 'class' => 'renren',        'icon' => 'icon-renren',        'icon-sign' => 'icon-renren'           ),
@@ -110,6 +111,7 @@ class Storm_Menu_Social_Icons {
 		$this->size = apply_filters( 'storm_social_icons_size', $this->size );
 		$this->type = apply_filters( 'storm_social_icons_type', $this->type );
 		$this->hide_text = apply_filters( 'storm_social_icons_hide_text', $this->hide_text );
+		$this->networks = apply_filters( 'storm_social_icons_networks', $this->networks );
 
 		add_action( 'wp_print_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'wp_print_scripts', array( $this, 'wp_print_scripts' ) );
