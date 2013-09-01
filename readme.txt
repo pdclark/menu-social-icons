@@ -4,7 +4,7 @@ Plugin URI: https://github.com/brainstormmedia/menu-social-icons
 Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
-Tested up to: 3.5.2
+Tested up to: 3.6
 Stable tag: 1.2
 
 Add social icons to your WordPress menu items automatically.
@@ -42,9 +42,19 @@ http://www.youtube.com/watch?v=AS3hLeyV4S0
 * xing.com
 * youtube.com
 
-There are several configuration options that can be changed by adding filters to your theme's `functions.php` file.
+**Editing the Appearance**
+
+If you want to edit the appearance of the icons in ways that the options below don't provide, you can do more with custom CSS to match your theme.
+
+Menu Social Icons adds a `social-icon` class to every menu item that's an icon, as well as a class for each social network, like `facebook` or `twitter`.
+
+If you're not familiar with how to use CSS to make these changes, here is a video walkthrough that will guide you through the process:
+
+http://youtu.be/hA2rjDwmvms
 
 **Available Options**
+
+There are several configuration options that can be changed by adding filters to your theme's `functions.php` file.
 
 Show menu item text in addition to the icons:
 `add_filter( 'storm_social_icons_hide_text', '__return_false' );`
