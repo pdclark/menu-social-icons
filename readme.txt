@@ -50,7 +50,7 @@ Menu Social Icons adds a `social-icon` class to every menu item that's an icon, 
 
 If you're not familiar with how to use CSS to make these changes, here is a video walkthrough that will guide you through the process:
 
-http://youtu.be/hA2rjDwmvms
+http://www.youtube.com/watch?v=hA2rjDwmvms
 
 **Available Options**
 
