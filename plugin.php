@@ -32,27 +32,24 @@ Author URI: http://brainstormmedia.com
 add_action( 'init', 'storm_menu_social_icons_init' );
 
 function storm_menu_social_icons_init() {
-
+	
 	// PHP Version Check
-	if ( version_compare(PHP_VERSION, '5.2', '<') ) {
+	$php_is_outdated = version_compare( PHP_VERSION, '5.2', '<' );
 
-    if ( is_admin() && ( !defined('DOING_AJAX') || !DOING_AJAX ) ) {
-		
-			// If not PHP 5.2, and in admin, show a warning and deactivate
+	// Only exit and warn if on admin page
+	$okay_to_exit = is_admin() && ( !defined('DOING_AJAX') || !DOING_AJAX );
+	
+	if ( $php_is_outdated ) {
+    if ( $okay_to_exit ) {
       require_once ABSPATH . '/wp-admin/includes/plugin.php';
       deactivate_plugins( __FILE__ );
       wp_die( sprintf( __( 'Menu Social Icons requires PHP 5.2 or higher, as does WordPress 3.2 and higher. The plugin has now disabled itself. For information on upgrading, %ssee this article%s.', 'menu-social-icons'), '<a href="http://codex.wordpress.org/Switching_to_PHP5" target="_blank">', '</a>') );
-
     } else {
-
-    	// Return on front-end to avoid crashing the site
       return;
-
     }
-
 	}
 
-	require dirname ( __FILE__ ) . '/classes/menu-social-icons.php';
+	require_once dirname ( __FILE__ ) . '/classes/menu-social-icons.php';
 	
 	// Front-end actions
 	add_action( 'template_redirect', 'Storm_Menu_Social_Icons::get_instance' );
