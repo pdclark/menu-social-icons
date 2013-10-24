@@ -43,7 +43,7 @@
 	 */
 	var add_icon = function( $input, icon_url ){
 		if ( "custom-menu-item-url" == $input.attr('id') ) {
-			add_icon_to_new_link( $input, icon_url );
+			add_icon_to_new_link( icon_url );
 		}else {
 			add_icon_to_title( $input, icon_url );
 		}
@@ -63,19 +63,14 @@
 	/**
 	 * Add icon to New Link area
 	 */
-	var add_icon_to_new_link = function( $input, icon_url ){
-		var $icon = get_icon_from_url( icon_url );
-
-		$icon.css({
-			"position": "absolute",
-			"top": "0px",
-			"right": "150px"
-		});
-		$("#submit-customlinkdiv").parent().css("position", "relative");
-
+	var add_icon_to_new_link = function( icon_url ){
 		remove_icon_from_new_link();
 
-		$("#submit-customlinkdiv").before( $icon );
+		$('#msi-shortcuts i').each( function(){
+			if ( icon_url == $(this).data('url') ) {
+				$(this).addClass('active');
+			}
+		});
 	};
 
 	/**
@@ -87,15 +82,10 @@
 
 		var $icon = get_icon_from_url( icon_url );
 
-		$icon.css({
-			"position": "absolute",
-			"top": "4px",
-			"left": "4px"
-		});
-
 		// Add icon and move title text over
+		remove_icon_from_title( $input );
 		$title.prepend( $icon );
-		$title.find("span.item-title").css("padding-left", "33px");
+		$title.find("span.item-title").addClass("has-social-icon");
 	};
 
 	/**
@@ -105,14 +95,14 @@
 		var $title = $input.parents('li.menu-item').find('dt.menu-item-handle');
 
 		$title.children('i').remove();
-		$title.find("span.item-title").css("padding-left", "0px");
+		$title.find("span.item-title").removeClass("has-social-icon");
 	};
 
 	/**
 	 *	Remove icon from New Link area
 	 */
 	var remove_icon_from_new_link = function(){
-		$("#submit-customlinkdiv").siblings("i").remove();
+		$('#msi-shortcuts i').removeClass('active');
 	};
 
 	/**
@@ -120,9 +110,6 @@
 	 */
 	var get_icon_from_url = function( url ){
 		var $icon = $("<i>").addClass( icons[ url ].icon ).addClass('fa-fw');
-
-		// Style icon
-		$icon.css({ "font-size": "28px" });
 
 		return $icon;
 	};
@@ -139,7 +126,7 @@
 	 */
 	var display_icon_shortcuts = function(){
 		var $icon, name;
-		var $wrapper = $('<div>').addClass('msi-shortcuts');
+		var $wrapper = $('<div>').attr('id', 'msi-shortcuts');
 
 		$wrapper.append( '<h4>Social Icons</h4>');
 
