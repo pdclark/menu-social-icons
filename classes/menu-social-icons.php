@@ -1,35 +1,4 @@
 <?php
-/*
-Plugin Name: Menu Social Icons
-Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports: Bitbucket, Dribbble, Dropbox, Flickr, Foursquare, Gittip, Instagram, RenRen, Stack Overflow, Trello, Tumblr, VK, Weibo, Xing, and YouTube.
-Version: 1.3
-Author: Brainstorm Media
-Author URI: http://brainstormmedia.com
-*/
-
-/**
- * Copyright (c) 2013 Brainstorm Media. All rights reserved.
- *
- * Released under the GPL license
- * http://www.opensource.org/licenses/gpl-license.php
- *
- * This is an add-on for WordPress
- * http://wordpress.org/
- *
- * **********************************************************************
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- * **********************************************************************
- */
-
-add_action( 'template_redirect', 'Storm_Menu_Social_Icons::get_instance' );
 
 class Storm_Menu_Social_Icons {
 
@@ -44,7 +13,8 @@ class Storm_Menu_Social_Icons {
 	var $hide_text = true;
 
 	/**
-	 * Array linking social site URLs with CSS classes for icons
+	 * Contains 3.2.1 FontAwesome icons only. See update_network_classes for 4.0.
+	 * @var array links social site URLs with CSS classes for icons
 	 */
 	var $networks = array(
 		'bitbucket.org'      => array( 'class' => 'bitbucket',     'icon' => 'icon-bitbucket',     'icon-sign' => 'icon-bitbucket-sign'   ),
