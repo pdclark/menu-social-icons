@@ -49,9 +49,9 @@ function storm_menu_social_icons_init() {
     }
 	}
 
-	require_once dirname ( __FILE__ ) . '/classes/menu-social-icons.php';
+	require_once dirname ( __FILE__ ) . '/classes/msi-frontend.php';
 	
 	// Front-end actions
-	add_action( 'template_redirect', 'Storm_Menu_Social_Icons::get_instance' );
+	add_action( 'template_redirect', 'MSI_Frontend::get_instance' );
 
 }
