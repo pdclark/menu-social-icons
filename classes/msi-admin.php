@@ -42,6 +42,7 @@ class MSI_Admin {
 			$msi_frontend->wp_enqueue_scripts();
 
 			wp_enqueue_script( 'menu-social-icons-admin', plugins_url( 'js/menu-social-icons-admin.js', MSI_PLUGIN_FILE ), array( 'jquery' ), MSI_VERSION, true );
+			wp_enqueue_style(  'menu-social-icons-admin', plugins_url( 'css/menu-social-icons-admin.css', MSI_PLUGIN_FILE ), array(), MSI_VERSION );
 
 			wp_localize_script( 'menu-social-icons-admin', 'MenuSocialIconsNetworks', $this->get_networks() );
 		}

@@ -11,34 +11,45 @@ class MSI_Frontend {
 	var $hide_text = true;
 
 	/**
-	 * Contains 3.2.1 FontAwesome icons only. See update_network_classes for 4.0.
+	 * Contains 3.2.1 FontAwesome icons only. See $networks_latest for additional 4.0 icons.
 	 * @var array links social site URLs with CSS classes for icons
 	 */
 	var $networks = array(
-		'bitbucket.org'      => array( 'class' => 'bitbucket',     'icon' => 'icon-bitbucket',     'icon-sign' => 'icon-bitbucket-sign'   ),
-		'dribbble.com'       => array( 'class' => 'dribbble',      'icon' => 'icon-dribbble',      'icon-sign' => 'icon-dribbble'         ),
-		'dropbox.com'        => array( 'class' => 'dropbox',       'icon' => 'icon-dropbox',       'icon-sign' => 'icon-dropbox'          ),
-		'facebook.com'       => array( 'class' => 'facebook',      'icon' => 'icon-facebook',      'icon-sign' => 'icon-facebook-sign'    ),
-		'flickr.com'         => array( 'class' => 'flickr',        'icon' => 'icon-flickr',        'icon-sign' => 'icon-flickr'           ),
-		'foursquare.com'     => array( 'class' => 'foursquare',    'icon' => 'icon-foursquare',    'icon-sign' => 'icon-foursquare'       ),
-		'github.com'         => array( 'class' => 'github',        'icon' => 'icon-github',        'icon-sign' => 'icon-github-sign'      ),
-		'gittip.com'         => array( 'class' => 'gittip',        'icon' => 'icon-gittip',        'icon-sign' => 'icon-gittip'           ),
-		'instagr.am'         => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
-		'instagram.com'      => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
-		'linkedin.com'       => array( 'class' => 'linkedin',      'icon' => 'icon-linkedin',      'icon-sign' => 'icon-linkedin-sign'    ),
-		'mailto:'            => array( 'class' => 'envelope',      'icon' => 'icon-envelope',      'icon-sign' => 'icon-envelope-alt'     ),
-		'pinterest.com'      => array( 'class' => 'pinterest',     'icon' => 'icon-pinterest',     'icon-sign' => 'icon-pinterest-sign'   ),
-		'plus.google.com'    => array( 'class' => 'google-plus',   'icon' => 'icon-google-plus',   'icon-sign' => 'icon-google-plus-sign' ),
-		'renren.com'         => array( 'class' => 'renren',        'icon' => 'icon-renren',        'icon-sign' => 'icon-renren'           ),
-		'stackoverflow.com'  => array( 'class' => 'stackexchange', 'icon' => 'icon-stackexchange', 'icon-sign' => 'icon-stackexchange'    ),
-		'trello.com'         => array( 'class' => 'trello',        'icon' => 'icon-trello',        'icon-sign' => 'icon-trello'           ),
-		'tumblr.com'         => array( 'class' => 'tumblr',        'icon' => 'icon-tumblr',        'icon-sign' => 'icon-tumblr'           ),
-		'twitter.com'        => array( 'class' => 'twitter',       'icon' => 'icon-twitter',       'icon-sign' => 'icon-twitter-sign'     ),
-		'vk.com'             => array( 'class' => 'vk',            'icon' => 'icon-vk',            'icon-sign' => 'icon-vk'               ),
-		'weibo.com'          => array( 'class' => 'weibo',         'icon' => 'icon-weibo',         'icon-sign' => 'icon-weibo'            ),
-		'xing.com'           => array( 'class' => 'xing',          'icon' => 'icon-xing',          'icon-sign' => 'icon-xing'             ),
-		'youtu.be'           => array( 'class' => 'youtube',       'icon' => 'icon-youtube',       'icon-sign' => 'icon-youtube-sign'     ),
-		'youtube.com'        => array( 'class' => 'youtube',       'icon' => 'icon-youtube',       'icon-sign' => 'icon-youtube-sign'     ),
+		'bitbucket.org'      => array( 'name' => 'Bitbucket',      'class' => 'bitbucket',     'icon' => 'icon-bitbucket',     'icon-sign' => 'icon-bitbucket-sign'   ),
+		'dribbble.com'       => array( 'name' => 'Dribbble',       'class' => 'dribbble',      'icon' => 'icon-dribbble',      'icon-sign' => 'icon-dribbble'         ),
+		'dropbox.com'        => array( 'name' => 'Dropbox',        'class' => 'dropbox',       'icon' => 'icon-dropbox',       'icon-sign' => 'icon-dropbox'          ),
+		'facebook.com'       => array( 'name' => 'Facebook',       'class' => 'facebook',      'icon' => 'icon-facebook',      'icon-sign' => 'icon-facebook-sign'    ),
+		'flickr.com'         => array( 'name' => 'Flickr',         'class' => 'flickr',        'icon' => 'icon-flickr',        'icon-sign' => 'icon-flickr'           ),
+		'foursquare.com'     => array( 'name' => 'Foursquare',     'class' => 'foursquare',    'icon' => 'icon-foursquare',    'icon-sign' => 'icon-foursquare'       ),
+		'github.com'         => array( 'name' => 'Github',         'class' => 'github',        'icon' => 'icon-github',        'icon-sign' => 'icon-github-sign'      ),
+		'gittip.com'         => array( 'name' => 'GitTip',         'class' => 'gittip',        'icon' => 'icon-gittip',        'icon-sign' => 'icon-gittip'           ),
+		'instagr.am'         => array( 'name' => 'Instagram',      'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
+		'instagram.com'      => array( 'name' => 'Instagram',      'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
+		'linkedin.com'       => array( 'name' => 'LinkedIn',       'class' => 'linkedin',      'icon' => 'icon-linkedin',      'icon-sign' => 'icon-linkedin-sign'    ),
+		'mailto:'            => array( 'name' => 'Email',          'class' => 'envelope',      'icon' => 'icon-envelope',      'icon-sign' => 'icon-envelope-alt'     ),
+		'pinterest.com'      => array( 'name' => 'Pinterest',      'class' => 'pinterest',     'icon' => 'icon-pinterest',     'icon-sign' => 'icon-pinterest-sign'   ),
+		'plus.google.com'    => array( 'name' => 'Google+',        'class' => 'google-plus',   'icon' => 'icon-google-plus',   'icon-sign' => 'icon-google-plus-sign' ),
+		'renren.com'         => array( 'name' => 'RenRen',         'class' => 'renren',        'icon' => 'icon-renren',        'icon-sign' => 'icon-renren'           ),
+		'stackoverflow.com'  => array( 'name' => 'Stack Exchange', 'class' => 'stackexchange', 'icon' => 'icon-stackexchange', 'icon-sign' => 'icon-stackexchange'    ),
+		'trello.com'         => array( 'name' => 'Trello',         'class' => 'trello',        'icon' => 'icon-trello',        'icon-sign' => 'icon-trello'           ),
+		'tumblr.com'         => array( 'name' => 'Tumblr',         'class' => 'tumblr',        'icon' => 'icon-tumblr',        'icon-sign' => 'icon-tumblr'           ),
+		'twitter.com'        => array( 'name' => 'Twitter',        'class' => 'twitter',       'icon' => 'icon-twitter',       'icon-sign' => 'icon-twitter-sign'     ),
+		'vk.com'             => array( 'name' => 'VK',             'class' => 'vk',            'icon' => 'icon-vk',            'icon-sign' => 'icon-vk'               ),
+		'weibo.com'          => array( 'name' => 'Weibo',          'class' => 'weibo',         'icon' => 'icon-weibo',         'icon-sign' => 'icon-weibo'            ),
+		'xing.com'           => array( 'name' => 'Xing',           'class' => 'xing',          'icon' => 'icon-xing',          'icon-sign' => 'icon-xing'             ),
+		'youtu.be'           => array( 'name' => 'YouTube',        'class' => 'youtube',       'icon' => 'icon-youtube',       'icon-sign' => 'icon-youtube-sign'     ),
+		'youtube.com'        => array( 'name' => 'YouTube',        'class' => 'youtube',       'icon' => 'icon-youtube',       'icon-sign' => 'icon-youtube-sign'     ),
+	);
+
+	/**
+	 * Contains 4.0+ FontAwesome icons only.
+	 * @var array links social site URLs with CSS classes for icons
+	 */
+	var $networks_latest = array(
+		'stackoverflow.com'  => array( 'name' => 'Stack Overflow', 'class' => 'stack-overflow', 'icon' => 'fa fa-stack-overflow', 'icon-sign' => 'fa fa-stack-overflow' ),
+		'stackexchange.com'  => array( 'name' => 'Stack Exchange', 'class' => 'stack-exchange', 'icon' => 'fa fa-stack-exchange', 'icon-sign' => 'fa fa-stack-exchange' ),
+		'vimeo.com'          => array( 'name' => 'Vimeo',          'class' => 'vimeo',          'icon' => 'fa fa-vimeo-square',   'icon-sign' => 'fa fa-vimeo-square'   ),
+		'mailto:'            => array( 'name' => 'Email',          'class' => 'envelope',       'icon' => 'fa fa-envelope',       'icon-sign' => 'fa fa-envelope-o'     ),
 	);
 
 	/**
@@ -243,11 +254,7 @@ class MSI_Frontend {
 			$values['icon-sign'] = str_replace( '-sign', '-square', $values['icon-sign'] );
 		}
 
-		$networks['stackoverflow.com'] = array( 'class' => 'stack-overflow', 'icon' => 'fa fa-stack-overflow', 'icon-sign' => 'fa fa-stack-overflow' );
-		$networks['stackexchange.com'] = array( 'class' => 'stack-exchange', 'icon' => 'fa fa-stack-exchange', 'icon-sign' => 'fa fa-stack-exchange' );
-		$networks['vimeo.com']         = array( 'class' => 'vimeo', 'icon' => 'fa fa-vimeo-square', 'icon-sign' => 'fa fa-vimeo-square' );
-		$networks['mailto:']           = array( 'class' => 'envelope', 'icon' => 'fa fa-envelope', 'icon-sign' => 'fa fa-envelope-o' );
-
+		$networks = array_merge( $networks, $this->networks_latest );
 
 		return $networks;
 	}
