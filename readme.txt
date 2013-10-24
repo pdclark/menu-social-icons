@@ -6,6 +6,7 @@ Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.6
 Stable tag: 1.3
+License: GPLv2
 
 Add social icons to your WordPress menu items automatically.
 
@@ -44,30 +45,30 @@ http://www.youtube.com/watch?v=AS3hLeyV4S0
 * xing.com
 * youtube.com
 
-**Editing the Appearance**
+**Changing Icon Appearance**
 
-If you want to edit the appearance of the icons in ways that the options below don't provide, you can do more with custom CSS to match your theme.
+If you want to edit the appearance of the icons in ways that the options below don't provide, you can do more with custom CSS to match your theme. This video walks through the process:
 
-Menu Social Icons adds a `social-icon` class to every menu item that's an icon, as well as a class for each social network, like `facebook` or `twitter`.
+http://youtube.com/watch?v=hA2rjDwmvms
 
-If you're not familiar with how to use CSS to make these changes, here is a video walkthrough that will guide you through the process:
+**Option: Add Vimeo and Stack Exchange**
 
-http://www.youtube.com/watch?v=hA2rjDwmvms
-
-**Available Options**
-
-There are several configuration options that can be changed by adding filters to your theme's `functions.php` file.
-
-Use FontAwesome 4.0, which drops support for IE7, but adds vimeo.com and stackexchange.com:
+To use FontAwesome 4.0, which drops support for **IE7**, but adds **vimeo.com** and **stackexchange.com**, add this to your theme's **functions.php** file:
 `add_filter( 'storm_social_icons_use_latest', '__return_true' );`
 
-Show menu item text in addition to the icons:
+**Option: Show Text**
+
+To show menu item text in addition to the icons, add this to your theme's **functions.php** file:
 `add_filter( 'storm_social_icons_hide_text', '__return_false' );`
 
-Show an alternative icon style, where logos are cut out of signs.
+**Option: Alternate Icons**
+
+To show an alternative icon style, where logos are cut out of signs, , add this to your theme's **functions.php** file:
 `add_filter( 'storm_social_icons_type', create_function( '', 'return "icon-sign";' ) );`
 
-Various sizes for icons. Pick one. (Default is 2x).
+**Option: Icon Sizes**
+
+To vary icon sizes, add this to your theme's **functions.php** file: (Default is 2x)
 
     add_filter( 'storm_social_icons_size', create_function( '', 'return "normal";' ) );
     add_filter( 'storm_social_icons_size', create_function( '', 'return "large";' ) );
@@ -75,15 +76,25 @@ Various sizes for icons. Pick one. (Default is 2x).
     add_filter( 'storm_social_icons_size', create_function( '', 'return "3x";' ) );
     add_filter( 'storm_social_icons_size', create_function( '', 'return "4x";' ) );
 
-Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for other URLs. For example, an RSS feed:
+**Option: Add More Icons**
+
+Add icons from [FontAwesome](http://fontawesome.github.io/Font-Awesome/) for other URLs. For example, an RSS feed:
 
     add_filter( 'storm_social_icons_networks', 'storm_social_icons_networks');
     function storm_social_icons_networks( $networks ) {
+
         $extra_icons = array (
-	        '/feed' => array( 'class' => 'rss', 'icon' => 'icon-rss', 'icon-sign' => 'icon-rss-sign' ),
+	        '/feed' => array(                  // Enable this icon for any URL containing this text
+                'name' => 'RSS',               // Default menu item label
+                'class' => 'rss',              // Custom class
+                'icon' => 'icon-rss',          // FontAwesome class
+                'icon-sign' => 'icon-rss-sign' // May not be available. Check FontAwesome.
+            ),
         );
+
         $extra_icons = array_merge( $networks, $extra_icons );
         return $extra_icons;
+
     }
 
 
@@ -106,9 +117,13 @@ Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for oth
 
 = Can you add X icon? =
 
-Menu Social Icons is dependent on the [FontAwesome icon library](http://fortawesome.github.io/Font-Awesome). If an icon exists in FontAwesome, you can add a filter for it using the `storm_social_icons_networks` example shown in the plugin description.
+Menu Social Icons is dependent on the [FontAwesome icon library](http://fontawesome.github.io/Font-Awesome). If an icon exists in FontAwesome, you can add a filter for it using the `storm_social_icons_networks` example shown in the plugin description.
 
-If an icon does not exist in FontAwesome, you can request see FontAwesome's instructions for [requesting new icons](http://fortawesome.github.io/Font-Awesome/community/#requesting-new-icons).
+If an icon does not exist in FontAwesome, you can request see FontAwesome's instructions for [requesting new icons](http://fontawesome.github.io/Font-Awesome/community/#requesting-new-icons).
+
+= How can I change how the icons are aligned, positioned, colored, sized, etc. =
+
+See the tutorial video on editing appearance and the code samples for various options in the [plugin description](http://wordpress.org/plugins/menu-social-icons/).
 
 = Does this plugin install all of FontAwesome? =
 
@@ -121,17 +136,18 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 == Changelog ==
 
 = 1.3 =
-* Add support for FontAwesome 4.0 with `storm_social_icons_use_latest` filter.
-* FontAwesome 4.0 adds vimeo.com and stackexchange.com, but removes support for IE7, so it is disabled by default. Use the filter example shown in the plugin description to enable it. 
+* New: Preview icons and shortcuts in the WordPress Menu Editor.
+* New: vimeo.com and stackexchange.com icons when FontAwesome 4.0 is turned on.
+* Notice: FontAwesome 4.0 removes support for IE7, so it is off by default. Use the filter `storm_social_icons_use_latest` shown in the readme to turn on FontAwesome 4.0. 
 
 = 1.2 =
-* Add filter for custom icons and URLs.
-* Add icon for `mailto:` links.
+* New: Filter for custom icons and URLs.
+* New: Icon for `mailto:` links.
 * [Thanks to mmcginnis](http://wordpress.org/support/topic/just-works-40) for both of these changes.
 
 = 1.1 =
-* Upgrade to FontAwesome 3.2.1
-* Add lots of new site icons: bitbucket.org, dribbble.com, dropbox.com, flickr.com, foursquare.com, gittip.com, instagram.com, renren.com, stackoverflow.com, trello.com, tumblr.com, vk.com, weibo.com, xing.com, youtube.com
+* New: Upgrade to FontAwesome 3.2.1
+* New: ots of new site icons: bitbucket.org, dribbble.com, dropbox.com, flickr.com, foursquare.com, gittip.com, instagram.com, renren.com, stackoverflow.com, trello.com, tumblr.com, vk.com, weibo.com, xing.com, youtube.com
 
 = 1.0 =
 * Initial public release.
@@ -139,5 +155,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 == Upgrade Notice ==
 
 **1.3**
-* Add support for FontAwesome 4.0 with `storm_social_icons_use_latest` filter.
-* FontAwesome 4.0 adds vimeo.com and stackexchange.com, but removes support for IE7, so it is disabled by default. Use the filter example shown in the plugin description to enable it.
+* New: Preview icons and shortcuts in the WordPress Menu Editor.
+* New: vimeo.com and stackexchange.com icons when FontAwesome 4.0 is turned on.
+* Notice: FontAwesome 4.0 removes support for IE7, so it is off by default. Use the filter `storm_social_icons_use_latest` shown in the readme to turn on FontAwesome 4.0. 
