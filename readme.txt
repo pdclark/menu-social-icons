@@ -34,11 +34,11 @@ http://www.youtube.com/watch?v=AS3hLeyV4S0
 * plus.google.com
 * renren.com
 * stackoverflow.com
-* stackexchange.com
+* stackexchange.com (Requires `storm_social_icons_use_latest`)
 * trello.com
 * tumblr.com
 * twitter.com
-* vimeo.com
+* vimeo.com (Requires `storm_social_icons_use_latest`)
 * vk.com
 * weibo.com
 * xing.com
@@ -94,12 +94,13 @@ Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for oth
 
 == Screenshots ==
 
+1. Icons and shortcuts in WordPress Menu Editor.
 1. Menu without the plugin activated.
-2. Plugin activated with default settings.
-3. Alternative "icon-sign" display.
-4. Hidden text disabled.
-5. "normal" icon size
-5. "4x" icon size
+1. Menu with default settings.
+1. Alternative "icon-sign" display.
+1. Hidden text disabled.
+1. "normal" icon size
+1. "4x" icon size
 
 == Frequently Asked Questions == 
 
