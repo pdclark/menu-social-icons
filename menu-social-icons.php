@@ -29,11 +29,11 @@ Author URI: http://brainstormmedia.com
  * **********************************************************************
  */
 
-add_action( 'template_redirect', create_function( '', 'global $storm_menu_social_icons; $storm_menu_social_icons = new Storm_Menu_Social_Icons();' ) );
+add_action( 'template_redirect', 'Storm_Menu_Social_Icons::get_instance' );
 
 class Storm_Menu_Social_Icons {
 
-	var $version = '1.2';
+	var $version = '1.3';
 
 	/**
 	 * Should we hide the original menu text, or put the icon before it?
@@ -124,7 +124,34 @@ class Storm_Menu_Social_Icons {
 	 */
 	var $use_latest = true;
 
+	/**
+	 * @var Storm_Menu_Social_Icons Instance of the class.
+	 */
+	private static $instance = false;
+
+	/**
+	 * Don't use this. Use ::get_instance() instead.
+	 */
 	public function __construct() {
+		if ( !self::$instance ) {
+			$message = '<code>' . __CLASS__ . '</code> is a singleton.<br/> Please get an instantiate it with <code>' . __CLASS__ . '::get_instance();</code>';
+			wp_die( $message );
+		}       
+	}
+	
+	public static function get_instance() {
+		if ( !is_a( self::$instance, __CLASS__ ) ) {
+			self::$instance = true;
+			self::$instance = new self();
+			self::$instance->init();
+		}
+		return self::$instance;
+	}
+	
+	/**
+	 * Initial setup. Called by get_instance.
+	 */
+	protected function init() {
 		
 		// Option to update to FontAwesome 4.0+ format (drops IE7 support)
 		$this->use_latest = apply_filters( 'storm_social_icons_use_latest', $this->use_latest );
