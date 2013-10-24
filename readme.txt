@@ -20,30 +20,18 @@ http://www.youtube.com/watch?v=AS3hLeyV4S0
 
 **Supported Sites**
 
-* bitbucket.org
-* dribbble.com
-* dropbox.com
-* facebook.com
-* flickr.com
-* foursquare.com
-* github.com
-* gittip.com
-* instagram.com
-* linkedin.com
-* mailto: (email links)
-* pinterest.com
-* plus.google.com
-* renren.com
-* stackoverflow.com
-* stackexchange.com (Requires `storm_social_icons_use_latest`)
-* trello.com
-* tumblr.com
-* twitter.com
-* vimeo.com (Requires `storm_social_icons_use_latest`)
-* vk.com
-* weibo.com
-* xing.com
-* youtube.com
+`
+bitbucket.org           dribbble.com         dropbox.com
+facebook.com            flickr.com           foursquare.com
+github.com              gittip.com           instagram.com
+linkedin.com            mailto:(email)       pinterest.com
+plus.google.com         renren.com           stackoverflow.com
+*stackexchange.com      trello.com           tumblr.com
+twitter.com             *vimeo.com           vk.com
+weibo.com               xing.com             youtube.com
+
+*Requires storm_social_icons_use_latest be turned on. (See below.)
+`
 
 **Changing Icon Appearance**
 
