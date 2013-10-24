@@ -29,6 +29,9 @@ Author URI: http://brainstormmedia.com
  * **********************************************************************
  */
 
+define( 'MSI_PLUGIN_FILE', __FILE__ );
+define( 'MSI_VERSION', '1.3' );
+
 add_action( 'init', 'storm_menu_social_icons_init' );
 
 function storm_menu_social_icons_init() {
@@ -50,8 +53,12 @@ function storm_menu_social_icons_init() {
 	}
 
 	require_once dirname ( __FILE__ ) . '/classes/msi-frontend.php';
+	require_once dirname ( __FILE__ ) . '/classes/msi-admin.php';
 	
-	// Front-end actions
+	// Frontend actions
 	add_action( 'template_redirect', 'MSI_Frontend::get_instance' );
+
+	// Admin actions
+	add_action( 'admin_init', 'MSI_Admin::get_instance' );
 
 }

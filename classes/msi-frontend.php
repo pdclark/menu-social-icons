@@ -2,8 +2,6 @@
 
 class MSI_Frontend {
 
-	var $version = '1.3';
-
 	/**
 	 * Should we hide the original menu text, or put the icon before it?
 	 * Override with storm_social_icons_hide_text filter
@@ -155,14 +153,14 @@ class MSI_Frontend {
 		if ( $this->use_latest ) {
 
 			// FontAwesome latest. Drops IE7 support.
-			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css', array(), $this->version, 'all' );
+			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css', array(), MSI_VERSION, 'all' );
 
 		}else {
 
 			// FontAwesome 3.2.1 -- support IE7, but lacks Vimeo
 			global $wp_styles;
-			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), $this->version, 'all' );
-			wp_enqueue_style( 'fontawesome-ie', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), $this->version );
+			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), MSI_VERSION, 'all' );
+			wp_enqueue_style( 'fontawesome-ie', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), MSI_VERSION );
 
 			// Internet Explorer conditional comment
 			$wp_styles->add_data( 'fontawesome-ie', 'conditional', 'IE 7' );
