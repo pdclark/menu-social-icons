@@ -1,0 +1,40 @@
+/* Icon sizes */
+.menu-item-handle i.fa, #msi-shortcuts i.fa {
+	font-size: 28px;
+}
+
+/* Fixed width for FontAwesome 3.2.1 */
+i.fa-fw {
+	width: 1.2857142857142858em;
+	text-align: center;
+	display:block;
+	float:left;
+}
+
+#msi-shortcuts i {
+	cursor: pointer;
+	margin: 0 5px 5px 0;
+	color: #333;
+}
+#msi-shortcuts i:hover {
+	color: #1A749D;
+}
+#msi-shortcuts h4 {
+	font-weight: normal;
+	font-style: italic;
+}
+
+/* Add Link active icon */
+#msi-shortcuts i.active {
+	color: #1A749D;
+}
+
+/* Menu item handle */
+.menu-item-handle i.fa {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+}
+.menu-item-handle span.has-social-icon {
+	padding-left: 33px;
+}
