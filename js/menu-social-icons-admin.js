@@ -1,9 +1,7 @@
-jQuery( document ).ready( function( $ ){
-
+(function( $, icons ){
 	/**
-	 * Global variable from MSI_Frontend::$networks
+	 * Variable "icons" from MenuSocialIconsNetworks, PHP: MSI_Frontend::$networks)
 	 */
-	var icons = msi_networks;
 
 	/**
 	 * List of URLs to search for
@@ -128,4 +126,4 @@ jQuery( document ).ready( function( $ ){
 	// Fire this plugin
 	init();
 
-});
+})( jQuery, MenuSocialIconsNetworks );

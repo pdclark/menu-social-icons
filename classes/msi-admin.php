@@ -43,9 +43,29 @@ class MSI_Admin {
 
 			wp_enqueue_script( 'menu-social-icons-admin', plugins_url( 'js/menu-social-icons-admin.js', MSI_PLUGIN_FILE ), array( 'jquery' ), MSI_VERSION, true );
 
-			wp_localize_script( 'menu-social-icons-admin', 'msi_networks', $msi_frontend->networks );
+			wp_localize_script( 'menu-social-icons-admin', 'MenuSocialIconsNetworks', $this->get_networks() );
 		}
 
+	}
+
+	/**
+	 * Get networks array to pass to javascript
+	 * Set icon-sign values as icon values if icon-sign in use.
+	 * Strip remaining icon-sign values
+	 */
+	public function get_networks() {
+		$msi_frontend = MSI_Frontend::get_instance();
+
+		$networks = $msi_frontend->networks;
+
+		foreach ( $networks as &$network ) {
+			if ( 'icon-sign' == $msi_frontend->type ) {
+				$network['icon'] = $network['icon-sign'];
+			}
+			unset( $network['icon-sign'] );
+		}
+
+		return $networks;
 	}
 
 

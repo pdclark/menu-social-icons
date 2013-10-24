@@ -22,7 +22,7 @@ class MSI_Frontend {
 		'flickr.com'         => array( 'class' => 'flickr',        'icon' => 'icon-flickr',        'icon-sign' => 'icon-flickr'           ),
 		'foursquare.com'     => array( 'class' => 'foursquare',    'icon' => 'icon-foursquare',    'icon-sign' => 'icon-foursquare'       ),
 		'github.com'         => array( 'class' => 'github',        'icon' => 'icon-github',        'icon-sign' => 'icon-github-sign'      ),
-		'gittip.com'         => array( 'class' => 'gittip',        'icon' => 'icon-gittip',        'icon-sign' => 'icon-gittip-sign'      ),
+		'gittip.com'         => array( 'class' => 'gittip',        'icon' => 'icon-gittip',        'icon-sign' => 'icon-gittip'           ),
 		'instagr.am'         => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
 		'instagram.com'      => array( 'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
 		'linkedin.com'       => array( 'class' => 'linkedin',      'icon' => 'icon-linkedin',      'icon-sign' => 'icon-linkedin-sign'    ),
@@ -240,11 +240,14 @@ class MSI_Frontend {
 		foreach ( $networks as $url => &$values ) {
 			$values['icon']      = str_replace( 'icon-', 'fa fa-', $values['icon'] );
 			$values['icon-sign'] = str_replace( 'icon-', 'fa fa-', $values['icon-sign'] );
+			$values['icon-sign'] = str_replace( '-sign', '-square', $values['icon-sign'] );
 		}
 
 		$networks['stackoverflow.com'] = array( 'class' => 'stack-overflow', 'icon' => 'fa fa-stack-overflow', 'icon-sign' => 'fa fa-stack-overflow' );
 		$networks['stackexchange.com'] = array( 'class' => 'stack-exchange', 'icon' => 'fa fa-stack-exchange', 'icon-sign' => 'fa fa-stack-exchange' );
 		$networks['vimeo.com']         = array( 'class' => 'vimeo', 'icon' => 'fa fa-vimeo-square', 'icon-sign' => 'fa fa-vimeo-square' );
+		$networks['mailto:']           = array( 'class' => 'envelope', 'icon' => 'fa fa-envelope', 'icon-sign' => 'fa fa-envelope-o' );
+
 
 		return $networks;
 	}
