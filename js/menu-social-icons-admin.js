@@ -43,7 +43,7 @@
 	 */
 	var add_icon = function( $input, icon_url ){
 		if ( "custom-menu-item-url" == $input.attr('id') ) {
-			add_icon_to_new_link( icon_url );
+			add_icon_to_new_link( $input, icon_url );
 		}else {
 			add_icon_to_title( $input, icon_url );
 		}
@@ -63,7 +63,7 @@
 	/**
 	 * Add icon to New Link area
 	 */
-	var add_icon_to_new_link = function( icon_url ){
+	var add_icon_to_new_link = function( $input, icon_url ){
 		remove_icon_from_new_link();
 
 		$('#msi-shortcuts i').each( function(){
@@ -71,6 +71,7 @@
 				$(this).addClass('active');
 			}
 		});
+
 	};
 
 	/**
@@ -109,7 +110,7 @@
 	 * Take a matched URL and create an icon from info looked up in icons object
 	 */
 	var get_icon_from_url = function( url ){
-		var $icon = $("<i>").addClass( icons[ url ].icon ).addClass('fa-fw');
+		var $icon = $("<i>").addClass( icons[ url ].icon ).addClass('fa').addClass('fa-fw');
 
 		return $icon;
 	};
@@ -142,7 +143,7 @@
 			$icon.data( 'url', icon_urls[i] );
 			$icon.data( 'name', name );
 
-			$icon.click( insert_icon_url );
+			$icon.click( update_link_fields );
 
 			$wrapper.append( $icon );
 		}
@@ -153,11 +154,14 @@
 	/**
 	 * Insert icon URL into input field when icon is clicked
 	 */
-	var insert_icon_url = function(){
+	var update_link_fields = function(){
 		var url = $(this).data('url');
 		var name = $(this).data('name');
 
-		$('#custom-menu-item-url').val( 'http://' + url + '/' ).trigger("keyup");
+		remove_icon_from_new_link();
+		$(this).addClass('active');
+
+		$('#custom-menu-item-url').val( 'http://' + url + '/' );
 		$('#custom-menu-item-name').val( name ).removeClass('input-with-default-title');
 	};
 
