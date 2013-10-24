@@ -5,7 +5,7 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2
 
 Add social icons to your WordPress menu items automatically.
@@ -78,7 +78,7 @@ To vary icon sizes, add this to your theme's **functions.php** file: (Default is
 
 **Option: Add More Icons**
 
-Add icons from [FontAwesome](http://fontawesome.github.io/Font-Awesome/) for other URLs. For example, an RSS feed:
+Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for other URLs. For example, an RSS feed:
 
     add_filter( 'storm_social_icons_networks', 'storm_social_icons_networks');
     function storm_social_icons_networks( $networks ) {
@@ -117,9 +117,9 @@ Add icons from [FontAwesome](http://fontawesome.github.io/Font-Awesome/) for oth
 
 = Can you add X icon? =
 
-Menu Social Icons is dependent on the [FontAwesome icon library](http://fontawesome.github.io/Font-Awesome). If an icon exists in FontAwesome, you can add a filter for it using the `storm_social_icons_networks` example shown in the plugin description.
+Menu Social Icons is dependent on the [FontAwesome icon library](http://fortawesome.github.io/Font-Awesome). If an icon exists in FontAwesome, you can add a filter for it using the `storm_social_icons_networks` example shown in the plugin description.
 
-If an icon does not exist in FontAwesome, you can request see FontAwesome's instructions for [requesting new icons](http://fontawesome.github.io/Font-Awesome/community/#requesting-new-icons).
+If an icon does not exist in FontAwesome, you can request see FontAwesome's instructions for [requesting new icons](http://fortawesome.github.io/Font-Awesome/community/#requesting-new-icons).
 
 = How can I change how the icons are aligned, positioned, colored, sized, etc. =
 

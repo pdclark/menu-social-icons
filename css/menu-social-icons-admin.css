@@ -23,6 +23,11 @@ i.fa-fw {
 	font-weight: normal;
 	font-style: italic;
 }
+#msi-shortcuts .faq {
+	padding-top:16px;
+	display:block;
+	clear:both;
+}
 
 /* Add Link active icon */
 #msi-shortcuts i.active {

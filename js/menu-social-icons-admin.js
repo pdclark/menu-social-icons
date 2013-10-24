@@ -148,6 +148,13 @@
 			$wrapper.append( $icon );
 		}
 
+		$faq = $('<ul>').addClass('faq');
+
+		$faq.append( "<li><a href='http://youtube.com/watch?v=hA2rjDwmvms' target='_blank'>How to edit icon appearance</a></li>" );
+		$faq.append( "<li><a href='http://fortawesome.github.io/Font-Awesome/community/#requesting-new-icons' target='_blank'>How to request new icons</a></li>" );
+
+		$wrapper.append( $faq );
+
 		$('#customlinkdiv').append( $wrapper );
 	};
 
@@ -161,7 +168,7 @@
 		remove_icon_from_new_link();
 		$(this).addClass('active');
 
-		$('#custom-menu-item-url').val( 'http://' + url + '/' );
+		$('#custom-menu-item-url').val( 'http://' + url );
 		$('#custom-menu-item-name').val( name ).removeClass('input-with-default-title');
 	};
 
