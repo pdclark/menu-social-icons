@@ -7,7 +7,7 @@
 # main config
 PLUGINSLUG=${PWD##*/} # returns basename of current directory
 CURRENTDIR=`pwd`
-MAINFILE="menu-social-icons.php" # this should be the name of your main php file in the wordpress plugin
+MAINFILE="plugin.php" # this should be the name of your main php file in the wordpress plugin
 
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository
