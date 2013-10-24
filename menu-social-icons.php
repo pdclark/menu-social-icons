@@ -2,7 +2,7 @@
 /*
 Plugin Name: Menu Social Icons
 Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports: Bitbucket, Dribbble, Dropbox, Flickr, Foursquare, Gittip, Instagram, RenRen, Stack Overflow, Trello, Tumblr, VK, Weibo, Xing, and YouTube.
-Version: 1.2
+Version: 1.3
 Author: Brainstorm Media
 Author URI: http://brainstormmedia.com
 */
@@ -79,10 +79,23 @@ class Storm_Menu_Social_Icons {
 	var $li_class = 'social-icon';
 
 	/**
-	 * Size options available for icon output
+	 * FontAwesome 4.0+ -- Size options available for icon output
 	 * These are sizes that render as "pixel perfect" according to FontAwesome.
 	 */
 	var $icon_sizes = array(
+		'normal' => '',
+		'large'  => 'fa-lg',
+		'2x'     => 'fa-2x',
+		'3x'     => 'fa-3x',
+		'4x'     => 'fa-4x',
+		'5x'     => 'fa-5x',
+	);
+
+	/**
+	 * FontAwesome 3.2.1 -- Size options available for icon output
+	 * These are sizes that render as "pixel perfect" according to FontAwesome.
+	 */
+	var $legacy_icon_sizes = array(
 		'normal' => '',
 		'large'  => 'icon-large',
 		'2x'     => 'icon-2x',
@@ -106,12 +119,24 @@ class Storm_Menu_Social_Icons {
 	 */
 	var $type = 'icon';
 
-	public function __construct() {
+	/**
+	 * @var bool If true, use FontAwesome 4.0+, which drops IE7, but adds Vimeo
+	 */
+	var $use_latest = true;
 
-		$this->size = apply_filters( 'storm_social_icons_size', $this->size );
-		$this->type = apply_filters( 'storm_social_icons_type', $this->type );
-		$this->hide_text = apply_filters( 'storm_social_icons_hide_text', $this->hide_text );
-		$this->networks = apply_filters( 'storm_social_icons_networks', $this->networks );
+	public function __construct() {
+		
+		// Option to update to FontAwesome 4.0+ format (drops IE7 support)
+		$this->use_latest = apply_filters( 'storm_social_icons_use_latest', $this->use_latest );
+
+		if ( $this->use_latest ) {
+			add_filter( 'storm_social_icons_networks', array( $this, 'update_network_classes' ), 1000 );
+		}
+
+		$this->size         = apply_filters( 'storm_social_icons_size',         $this->size );
+		$this->type         = apply_filters( 'storm_social_icons_type',         $this->type );
+		$this->hide_text    = apply_filters( 'storm_social_icons_hide_text',    $this->hide_text );
+		$this->networks     = apply_filters( 'storm_social_icons_networks',     $this->networks );
 
 		add_action( 'wp_print_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'wp_print_scripts', array( $this, 'wp_print_scripts' ) );
@@ -129,13 +154,24 @@ class Storm_Menu_Social_Icons {
 	 * @see http://www.bootstrapcdn.com/#tab_fontawesome
 	 */
 	public function wp_enqueue_scripts() {
-		global $wp_styles;
 
-		wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), $this->version, 'all' );
-		wp_enqueue_style( 'fontawesome-ie', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), $this->version );
+		if ( $this->use_latest ) {
 
-		// Add Internet Explorer conditional comment
-		$wp_styles->add_data( 'fontawesome-ie', 'conditional', 'IE 7' );
+			// FontAwesome latest. Drops IE7 support.
+			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css', array(), $this->version, 'all' );
+
+		}else {
+
+			// FontAwesome 3.2.1 -- support IE7, but lacks Vimeo
+			global $wp_styles;
+			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), $this->version, 'all' );
+			wp_enqueue_style( 'fontawesome-ie', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), $this->version );
+
+			// Internet Explorer conditional comment
+			$wp_styles->add_data( 'fontawesome-ie', 'conditional', 'IE 7' );
+
+		}
+
 	}
 
 	/**
@@ -157,7 +193,10 @@ class Storm_Menu_Social_Icons {
 	 */
 	public function get_icon( $network ) {
 
-		$size = $this->icon_sizes[ $this->size ];
+		// Switch between legacy or current icon size classes
+		$icon_sizes = ( $this->use_latest ) ?  $this->icon_sizes : $this->legacy_icon_sizes;
+
+		$size = $icon_sizes[ $this->size ];
 		$icon = $network[ $this->type ];
 		$show_text = $this->hide_text ? '' : 'fa-showtext';
 
@@ -193,6 +232,26 @@ class Storm_Menu_Social_Icons {
 
 		return $sorted_menu_items;
 		
+	}
+
+	/**
+	 * Change size classes from 3.2.1 format to 4.0+ format.
+	 * 
+	 * @param  array $networks See $this->$networks
+	 * @return array $networks Filtered to change "icon-" to "fa fa-"
+	 */
+	public function update_network_classes( $networks ) {
+		
+		foreach ( $networks as $url => &$values ) {
+			$values['icon']      = str_replace( 'icon-', 'fa fa-', $values['icon'] );
+			$values['icon-sign'] = str_replace( 'icon-', 'fa fa-', $values['icon-sign'] );
+		}
+
+		$networks['stackoverflow.com'] = array( 'class' => 'stack-overflow', 'icon' => 'fa fa-stack-overflow', 'icon-sign' => 'fa fa-stack-overflow' );
+		$networks['stackexchange.com'] = array( 'class' => 'stack-exchange', 'icon' => 'fa fa-stack-exchange', 'icon-sign' => 'fa fa-stack-exchange' );
+		$networks['vimeo.com']         = array( 'class' => 'vimeo', 'icon' => 'fa fa-vimeo-square', 'icon-sign' => 'fa fa-vimeo-square' );
+
+		return $networks;
 	}
 
 	/**

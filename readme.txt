@@ -5,7 +5,7 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 1.2
+Stable tag: 1.3
 
 Add social icons to your WordPress menu items automatically.
 
@@ -34,9 +34,11 @@ http://www.youtube.com/watch?v=AS3hLeyV4S0
 * plus.google.com
 * renren.com
 * stackoverflow.com
+* stackexchange.com
 * trello.com
 * tumblr.com
 * twitter.com
+* vimeo.com
 * vk.com
 * weibo.com
 * xing.com
@@ -55,6 +57,9 @@ http://www.youtube.com/watch?v=hA2rjDwmvms
 **Available Options**
 
 There are several configuration options that can be changed by adding filters to your theme's `functions.php` file.
+
+Use FontAwesome 4.0, which drops support for IE7, but adds vimeo.com and stackexchange.com:
+`add_filter( 'storm_social_icons_use_latest', '__return_true' );`
 
 Show menu item text in addition to the icons:
 `add_filter( 'storm_social_icons_hide_text', '__return_false' );`
@@ -98,6 +103,12 @@ Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for oth
 
 == Frequently Asked Questions == 
 
+= Can you add X icon? =
+
+Menu Social Icons is dependent on the [FontAwesome icon library](http://fortawesome.github.io/Font-Awesome). If an icon exists in FontAwesome, you can add a filter for it using the `storm_social_icons_networks` example shown in the plugin description.
+
+If an icon does not exist in FontAwesome, you can request see FontAwesome's instructions for [requesting new icons](http://fortawesome.github.io/Font-Awesome/community/#requesting-new-icons).
+
 = Does this plugin install all of FontAwesome? =
 
 Yes. The plugin installs the complete FontAwesome package. You can use any of the icons in your HTML.
@@ -107,6 +118,10 @@ Yes. The plugin installs the complete FontAwesome package. You can use any of th
 We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.bootstrapcdn.com/#tab_fontawesome) service. This makes it load much faster for your users.
 
 == Changelog ==
+
+= 1.3 =
+* Add support for FontAwesome 4.0 with `storm_social_icons_use_latest` filter.
+* FontAwesome 4.0 adds vimeo.com and stackexchange.com, but removes support for IE7, so it is disabled by default. Use the filter example shown in the plugin description to enable it. 
 
 = 1.2 =
 * Add filter for custom icons and URLs.
@@ -122,10 +137,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
-**1.2**
-* Add filter for custom icons and URLs.
-* Add icon for `mailto:` links.
-* [Thanks to mmcginnis](http://wordpress.org/support/topic/just-works-40) for both of these changes.
-
-**1.1**
-Add lots of new networks: bitbucket.org, dribbble.com, dropbox.com, flickr.com, foursquare.com, gittip.com, instagram.com, renren.com, stackoverflow.com, trello.com, tumblr.com, vk.com, weibo.com, xing.com, youtube.com
+**1.3**
+* Add support for FontAwesome 4.0 with `storm_social_icons_use_latest` filter.
+* FontAwesome 4.0 adds vimeo.com and stackexchange.com, but removes support for IE7, so it is disabled by default. Use the filter example shown in the plugin description to enable it.
