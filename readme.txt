@@ -4,8 +4,8 @@ Plugin URI: https://github.com/brainstormmedia/menu-social-icons
 Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
-Tested up to: 3.6
-Stable tag: 1.3.1
+Tested up to: 3.7
+Stable tag: 1.3.2
 License: GPLv2
 
 Add social icons to your WordPress menu items automatically.
@@ -123,6 +123,10 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.3.2 =
+* Fix: Properly enqueue stylesheets
+* Fix: Set FontAwesome 4.0 to off by default
+
 = 1.3 =
 * New: Preview icons and shortcuts in the WordPress Menu Editor.
 * New: vimeo.com and stackexchange.com icons when FontAwesome 4.0 is turned on.
@@ -142,7 +146,13 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
+**1.3.2**
+
+* Fix: Properly enqueue stylesheets
+* Fix: Set FontAwesome 4.0 to off by default
+
 **1.3**
+
 * New: Preview icons and shortcuts in the WordPress Menu Editor.
 * New: vimeo.com and stackexchange.com icons when FontAwesome 4.0 is turned on.
 * Notice: FontAwesome 4.0 removes support for IE7, so it is off by default. Use the filter `storm_social_icons_use_latest` shown in the readme to turn on FontAwesome 4.0. 

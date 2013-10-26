@@ -101,7 +101,7 @@ class MSI_Frontend {
 	/**
 	 * @var bool If true, use FontAwesome 4.0+, which drops IE7, but adds Vimeo
 	 */
-	var $use_latest = true;
+	var $use_latest = false;
 
 	/**
 	 * @var Storm_Menu_Social_Icons Instance of the class.
@@ -144,7 +144,7 @@ class MSI_Frontend {
 		$this->hide_text    = apply_filters( 'storm_social_icons_hide_text',    $this->hide_text );
 		$this->networks     = apply_filters( 'storm_social_icons_networks',     $this->networks );
 
-		add_action( 'wp_print_scripts', array( $this, 'wp_enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'wp_print_scripts', array( $this, 'wp_print_scripts' ) );
 
 		add_filter( 'wp_nav_menu_objects', array( $this, 'wp_nav_menu_objects' ), 5, 2 );
