@@ -5,8 +5,9 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.7.1
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Add social icons to your WordPress menu items automatically.
 
@@ -123,6 +124,9 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.3.4 =
+* Fix: Work around compatibility issue with [Better WordPress Minify](http://wordpress.org/plugins/bwp-minify/) plugin.
+
 = 1.3.3 =
 * Fix: Work around bug in WP E-commerce that causes other plugins to not load properly on product pages. Thanks [@elfary](http://wordpress.org/support/topic/menu-with-e-commerce). See [bug report to WP E-commerce](http://wordpress.org/support/topic/other-plugins-blocked-from-loading-on-product-pages).
 
@@ -149,6 +153,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
-**1.3.3**
+= 1.3.4 =
 
-* Fix: Work around bug in WP E-commerce that causes other plugins to not load properly on product pages. Thanks [@elfary](http://wordpress.org/support/topic/menu-with-e-commerce). See [bug report to WP E-commerce](http://wordpress.org/support/topic/other-plugins-blocked-from-loading-on-product-pages).
+* Fix: Work around compatibility issue with [Better WordPress Minify](http://wordpress.org/plugins/bwp-minify/) plugin.
