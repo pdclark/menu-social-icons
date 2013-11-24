@@ -125,7 +125,7 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 == Changelog ==
 
 = 1.3.5 =
-* Fix: Horizontal scrollbar on RTL layouts.
+* Fix: Horizontal scrollbar on RTL layouts. Thanks [@mascatu](http://wordpress.org/support/profile/mascatu) for the [bug report](http://wordpress.org/support/topic/rtl-issue-1).
 
 = 1.3.4 =
 * Fix: Work around compatibility issue with [Better WordPress Minify](http://wordpress.org/plugins/bwp-minify/) plugin.
@@ -158,4 +158,4 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 = 1.3.5 =
 
-* Fix: Horizontal scrollbar on RTL layouts.
+* Fix: Horizontal scrollbar on RTL layouts. Thanks [@mascatu](http://wordpress.org/support/profile/mascatu) for the [bug report](http://wordpress.org/support/topic/rtl-issue-1).
