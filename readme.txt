@@ -5,7 +5,7 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.7.1
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,6 +124,9 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.3.5 =
+* Fix: Horizontal scrollbar on RTL layouts.
+
 = 1.3.4 =
 * Fix: Work around compatibility issue with [Better WordPress Minify](http://wordpress.org/plugins/bwp-minify/) plugin.
 
@@ -153,6 +156,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
-= 1.3.4 =
+= 1.3.5 =
 
-* Fix: Work around compatibility issue with [Better WordPress Minify](http://wordpress.org/plugins/bwp-minify/) plugin.
+* Fix: Horizontal scrollbar on RTL layouts.
