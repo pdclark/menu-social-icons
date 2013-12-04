@@ -86,7 +86,7 @@ Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for oth
 
     }
 
-** Option: Change HTML Output**
+**Option: Change HTML Output**
 
 Copy the folder `msi-templates` from `wp-content/plugins/menu-social-icons` to your theme directory. You can then edit the copies in your theme to change the HTML output by the plugin.
 
