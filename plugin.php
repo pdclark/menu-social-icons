@@ -2,35 +2,15 @@
 /*
 Plugin Name: Menu Social Icons
 Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports: Bitbucket, Dribbble, Dropbox, Flickr, Foursquare, Gittip, Instagram, RenRen, Stack Overflow, Trello, Tumblr, VK, Weibo, Xing, and YouTube.
-Version: 1.3.5
+Version: 1.3.6
 Author: Brainstorm Media
 Author URI: http://brainstormmedia.com
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/**
- * Copyright (c) 2013 Brainstorm Media. All rights reserved.
- *
- * Released under the GPL license
- * http://www.opensource.org/licenses/gpl-license.php
- *
- * This is an add-on for WordPress
- * http://wordpress.org/
- *
- * **********************************************************************
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- * **********************************************************************
- */
-
 define( 'MSI_PLUGIN_FILE', __FILE__ );
-define( 'MSI_VERSION', '1.3.4' );
+define( 'MSI_VERSION', '1.3.6' );
 
 add_action( 'init', 'storm_menu_social_icons_init' );
 
