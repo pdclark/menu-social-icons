@@ -1,0 +1,1 @@
+<i class="<?php echo $size . ' ' . $icon . ' ' . $show_text ?>"></i>
