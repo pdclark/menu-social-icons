@@ -5,7 +5,7 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.7.1
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,6 +86,11 @@ Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for oth
 
     }
 
+** Option: Change HTML Output**
+
+Copy the folder `msi-templates` from `wp-content/plugins/menu-social-icons` to your theme directory. You can then edit the copies in your theme to change the HTML output by the plugin.
+
+This is useful for developers using the plugin with custom icon sets. It also protects your changes from being overwritten by plugin updates.
 
 == Installation ==
 
@@ -124,38 +129,50 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.3.6 =
+
+* New: Allow themes to override HTML output with msi-templates directory.
+
 = 1.3.5 =
+
 * Fix: Horizontal scrollbar on RTL layouts. Thanks [@mascatu](http://wordpress.org/support/profile/mascatu) for the [bug report](http://wordpress.org/support/topic/rtl-issue-1).
 
 = 1.3.4 =
+
 * Fix: Work around compatibility issue with [Better WordPress Minify](http://wordpress.org/plugins/bwp-minify/) plugin.
 
 = 1.3.3 =
+
 * Fix: Work around bug in WP E-commerce that causes other plugins to not load properly on product pages. Thanks [@elfary](http://wordpress.org/support/topic/menu-with-e-commerce). See [bug report to WP E-commerce](http://wordpress.org/support/topic/other-plugins-blocked-from-loading-on-product-pages).
 
 = 1.3.2 =
+
 * Fix: Properly enqueue stylesheets
 * Fix: Set FontAwesome 4.0 to off by default
 
 = 1.3 =
+
 * New: Preview icons and shortcuts in the WordPress Menu Editor.
 * New: vimeo.com and stackexchange.com icons when FontAwesome 4.0 is turned on.
 * Notice: FontAwesome 4.0 removes support for IE7, so it is off by default. Use the filter `storm_social_icons_use_latest` shown in the readme to turn on FontAwesome 4.0. 
 
 = 1.2 =
+
 * New: Filter for custom icons and URLs.
 * New: Icon for `mailto:` links.
 * [Thanks to mmcginnis](http://wordpress.org/support/topic/just-works-40) for both of these changes.
 
 = 1.1 =
+
 * New: Upgrade to FontAwesome 3.2.1
 * New: ots of new site icons: bitbucket.org, dribbble.com, dropbox.com, flickr.com, foursquare.com, gittip.com, instagram.com, renren.com, stackoverflow.com, trello.com, tumblr.com, vk.com, weibo.com, xing.com, youtube.com
 
 = 1.0 =
+
 * Initial public release.
 
 == Upgrade Notice ==
 
-= 1.3.5 =
+= 1.3.6 =
 
-* Fix: Horizontal scrollbar on RTL layouts. Thanks [@mascatu](http://wordpress.org/support/profile/mascatu) for the [bug report](http://wordpress.org/support/topic/rtl-issue-1).
+* New: Allow themes to override HTML output with msi-templates directory.
