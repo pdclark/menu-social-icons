@@ -182,10 +182,17 @@ class MSI_Frontend {
 
 	/**
 	 * Hide text visually, but keep available for screen readers.
-	 * Just 2 lines of stylesheet, so loading inline rather than adding another HTTP request.
+	 * Just a few lines of stylesheet, so loading inline rather than adding another HTTP request.
 	 */
 	public function wp_print_scripts() {
-		echo self::get_template( 'stylesheet' );
+		?>
+		<style>
+			/* Accessible for screen readers but hidden from view */
+			.fa-hidden { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+			.rtl .fa-hidden { left:10000px; }
+			.fa-showtext { margin-right: 5px; }
+		</style>
+		<?php
 	}
 
 	/**
@@ -200,7 +207,9 @@ class MSI_Frontend {
 		$icon = $network[ $this->type ];
 		$show_text = $this->hide_text ? '' : 'fa-showtext';
 
-		return self::get_template( 'icon', compact( 'size', 'icon', 'show_text' ) );
+		$html = "<i class='$size $icon $show_text'></i>";
+
+		return apply_filters( 'storm_social_icons_icon_html', $html, $size, $icon, $show_text );
 
 	}
 
@@ -222,7 +231,8 @@ class MSI_Frontend {
 					$item->classes[] = $network['class'];
 
 					if ( $this->hide_text ) {
-						$item->title = self::get_template( 'hide-text', array( 'title' => $item->title ) );
+						$html = "<span class='fa-hidden'>$title</span>";
+						$item->title = apply_filters( 'storm_social_icons_title_html', $html, $item->title );
 					}
 
 					$item->title = $this->get_icon( $network ) . $item->title ;
@@ -251,31 +261,6 @@ class MSI_Frontend {
 		$networks = array_merge( $networks, $this->networks_latest );
 
 		return $networks;
-	}
-
-	/**
-	 * Load HTML template from templates directory.
-	 * Contents of $args are turned into variables for use in the template.
-	 * 
-	 * For example, $args = array( 'foo' => 'bar' );
-	 *   becomes variable $foo with value 'bar'
-	 */
-	static public function get_template( $file, $args = array() ) {
-		extract( $args );
-
-		$locations = array(
-			'theme_file' => get_stylesheet_directory() . "/msi-templates/$file.php",
-			'plugin_file' => dirname( dirname( __FILE__ ) ) . "/msi-templates/$file.php",
-		);
-
-		foreach ( $locations as $file ) {
-			if ( file_exists( $file ) ) {
-				ob_start();
-				include $file;
-				$output = ob_get_clean();
-				return $output;
-			}
-		}
 	}
 
 	/**
