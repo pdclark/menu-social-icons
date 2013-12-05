@@ -5,7 +5,7 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.7.1
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,11 +86,62 @@ Add icons from [FontAwesome](http://fortawesome.github.io/Font-Awesome/) for oth
 
     }
 
-** Option: Change HTML Output**
+**Option: Change HTML Output**
 
-Copy the folder `msi-templates` from `wp-content/plugins/menu-social-icons` to your theme directory. You can then edit the copies in your theme to change the HTML output by the plugin.
+This is useful for developers using the plugin with custom icon sets.
 
-This is useful for developers using the plugin with custom icon sets. It also protects your changes from being overwritten by plugin updates.
+Edit icon HTML output:
+`
+add_filter( 'storm_social_icons_icon_html', 'storm_social_icons_icon_html', 10, 4 );
+
+function storm_social_icons_icon_html( $html, $size, $icon, $show_text ) {
+    $html = "<i class='$size $icon $show_text'></i>";
+    return $html;
+}
+`
+
+Edit title HTML output:
+`
+add_filter( 'storm_social_icons_title_html', 'storm_social_icons_title_html', 10, 2 );
+
+function storm_social_icons_title_html( $html, $title ){
+    $html = "<span class='fa-hidden'>$title</span>";
+    return $html;
+}
+`
+
+Edit all link attributes (WordPress core filter):
+
+`
+add_filter( 'wp_nav_menu_objects', 'storm_wp_nav_menu_objects', 7, 2 );
+
+function storm_wp_nav_menu_objects( $sorted_menu_items, $args ){
+
+    foreach( $sorted_menu_items as &$item ) {
+
+        if ( 0 != $item->menu_item_parent ) {
+            // Skip submenu items
+            continue;
+        }
+
+        // Only apply changes to links containing this text.
+        $search_url = 'facebook.com';
+
+        if ( false !== strpos( $item->url, $search_url ) ) {
+
+            // Add a custom class
+            $item->classes[] = 'some-custom-class';
+
+            // Add custom HTML inside the link
+            $item->title = '<strong>custom html</strong>' . $item->title;
+
+        }
+    }
+
+    return $sorted_menu_items;
+    
+}
+`
 
 == Installation ==
 
@@ -128,6 +179,10 @@ Yes. The plugin installs the complete FontAwesome package. You can use any of th
 We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.bootstrapcdn.com/#tab_fontawesome) service. This makes it load much faster for your users.
 
 == Changelog ==
+
+= 1.3.7 =
+
+* New: Remove templates folder. Replace with filters `storm_social_icons_title_html` and `storm_social_icons_icon_html`. Add example of core `wp_nav_menu_objects` filter to readme.
 
 = 1.3.6 =
 
@@ -173,6 +228,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
-= 1.3.6 =
+= 1.3.7 =
 
-* New: Allow themes to override HTML output with msi-templates directory.
+* New: Remove templates folder. Replace with filters `storm_social_icons_title_html` and `storm_social_icons_icon_html`. Add example of core `wp_nav_menu_objects` filter to readme.
