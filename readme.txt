@@ -5,7 +5,7 @@ Author URI: http://brainstormmedia.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.7.1
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -180,6 +180,10 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.3.7 =
+
+* New: Remove templates folder. Replace with filters `storm_social_icons_title_html` and `storm_social_icons_icon_html`. Add example of core `wp_nav_menu_objects` filter to readme.
+
 = 1.3.6 =
 
 * New: Allow themes to override HTML output with msi-templates directory.
@@ -224,6 +228,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
-= 1.3.6 =
+= 1.3.7 =
 
-* New: Allow themes to override HTML output with msi-templates directory.
+* New: Remove templates folder. Replace with filters `storm_social_icons_title_html` and `storm_social_icons_icon_html`. Add example of core `wp_nav_menu_objects` filter to readme.
