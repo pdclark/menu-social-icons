@@ -231,7 +231,7 @@ class MSI_Frontend {
 					$item->classes[] = $network['class'];
 
 					if ( $this->hide_text ) {
-						$html = "<span class='fa-hidden'>$title</span>";
+						$html = "<span class='fa-hidden'>{$item->title}</span>";
 						$item->title = apply_filters( 'storm_social_icons_title_html', $html, $item->title );
 					}
 
