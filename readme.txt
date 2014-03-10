@@ -4,8 +4,8 @@ Plugin URI: https://github.com/10up/menu-social-icons
 Author URI: http://pdclark.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
-Tested up to: 3.7.1
-Stable tag: 1.3.8
+Tested up to: 3.8.1
+Stable tag: 1.3.9
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,7 @@ http://youtube.com/watch?v=hA2rjDwmvms
 
 **Option: Add Vimeo and Stack Exchange**
 
-To use FontAwesome 4.0, which drops support for **IE7**, but adds **vimeo.com** and **stackexchange.com**, add this to your theme's **functions.php** file:
+To use FontAwesome 4.0+, which drops support for **IE7**, but adds **vimeo.com** and **stackexchange.com**, add this to your theme's **functions.php** file:
 `add_filter( 'storm_social_icons_use_latest', '__return_true' );`
 
 **Option: Show Text**
@@ -180,6 +180,10 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.3.9 =
+
+* Fix: Change `use_latest` filter to request "latest" version of FontAwesome, rather than stopping at `4.0.0`. Current version is `4.0.3`.
+
 = 1.3.8 =
 
 * Fix: Title notice.
@@ -232,10 +236,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
-= 1.3.8 =
+= 1.3.9 =
 
-* Fix: Title notice.
-
-= 1.3.7 =
-
-* New: Remove templates folder. Replace with filters `storm_social_icons_title_html` and `storm_social_icons_icon_html`. Add example of core `wp_nav_menu_objects` filter to readme.
+* Fix: Change `use_latest` filter to request "latest" version of FontAwesome, rather than stopping at `4.0.0`. Current version is `4.0.3`.
