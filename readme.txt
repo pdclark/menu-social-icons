@@ -1,7 +1,7 @@
 === Menu Social Icons ===
-Contributors: brainstormmedia, pdclark
-Plugin URI: https://github.com/brainstormmedia/menu-social-icons
-Author URI: http://brainstormmedia.com
+Contributors: pdclark, 10up
+Plugin URI: https://github.com/10up/menu-social-icons
+Author URI: http://pdclark.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.7.1
