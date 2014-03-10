@@ -164,7 +164,7 @@ class MSI_Frontend {
 		if ( $this->use_latest ) {
 
 			// FontAwesome latest. Drops IE7 support.
-			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css', array(), MSI_VERSION, 'all' );
+			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.css', array(), MSI_VERSION, 'all' );
 
 		}else {
 
