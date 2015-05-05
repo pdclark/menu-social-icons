@@ -5,7 +5,7 @@ Author URI: http://pdclark.com
 Tags: social, icons, menus, FontAwesome, social media, easy
 Requires at least: 3.4
 Tested up to: 3.8.1
-Stable tag: 1.3.9
+Stable tag: 1.3.10
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,7 @@ tumblr.com              twitter.com          *vimeo.com
 vk.com                  weibo.com            xing.com
 youtube.com
 
-*Requires storm_social_icons_use_latest be turned on. (See below.)
+* Requires storm_social_icons_use_latest be turned on. (See below.)
 `
 
 **Changing Icon Appearance**
@@ -181,6 +181,10 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Changelog ==
 
+= 1.3.10 =
+
+* New: Add SlideShare. Thanks @mjiderhamn.
+
 = 1.3.9 =
 
 * Fix: Change `use_latest` filter to request "latest" version of FontAwesome, rather than stopping at `4.0.0`. Current version is `4.0.3`.
@@ -237,6 +241,6 @@ We load FontAwesome onto your site using NetDNA's [Bootstrap CDN](http://www.boo
 
 == Upgrade Notice ==
 
-= 1.3.9 =
+= 1.3.10 =
 
-* Fix: Change `use_latest` filter to request "latest" version of FontAwesome, rather than stopping at `4.0.0`. Current version is `4.0.3`.
+* New: Add SlideShare. Thanks @mjiderhamn.

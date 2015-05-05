@@ -2,7 +2,7 @@
 /*
 Plugin Name: Menu Social Icons
 Description: Change menu links to social sites to icons automatically. Uses <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> and supports: Bitbucket, Dribbble, Dropbox, Flickr, Foursquare, Gittip, Instagram, RenRen, SlideShare, Stack Overflow, Trello, Tumblr, VK, Weibo, Xing, and YouTube.
-Version: 1.3.9
+Version: 1.3.10
 Author: Paul Clark
 Author URI: http://pdclark.com
 License: GPLv2 or later
