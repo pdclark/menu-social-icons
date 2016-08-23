@@ -21,7 +21,7 @@ class MSI_Frontend {
 		'facebook.com'       => array( 'name' => 'Facebook',       'class' => 'facebook',      'icon' => 'icon-facebook',      'icon-sign' => 'icon-facebook-sign'    ),
 		'flickr.com'         => array( 'name' => 'Flickr',         'class' => 'flickr',        'icon' => 'icon-flickr',        'icon-sign' => 'icon-flickr'           ),
 		'foursquare.com'     => array( 'name' => 'Foursquare',     'class' => 'foursquare',    'icon' => 'icon-foursquare',    'icon-sign' => 'icon-foursquare'       ),
-		'github.com'         => array( 'name' => 'Github',         'class' => 'github',        'icon' => 'icon-github',        'icon-sign' => 'icon-github-sign'      ),
+		'github.com'         => array( 'name' => 'GitHub',         'class' => 'github',        'icon' => 'icon-github',        'icon-sign' => 'icon-github-sign'      ),
 		'gittip.com'         => array( 'name' => 'GitTip',         'class' => 'gittip',        'icon' => 'icon-gittip',        'icon-sign' => 'icon-gittip'           ),
 		'instagr.am'         => array( 'name' => 'Instagram',      'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
 		'instagram.com'      => array( 'name' => 'Instagram',      'class' => 'instagram',     'icon' => 'icon-instagram',     'icon-sign' => 'icon-instagram'        ),
