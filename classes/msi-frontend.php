@@ -165,14 +165,14 @@ class MSI_Frontend {
 		if ( $this->use_latest ) {
 
 			// FontAwesome latest. Drops IE7 support.
-			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css', array(), MSI_VERSION, 'all' );
+			wp_enqueue_style( 'fontawesome', '//stackpath.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css', array(), MSI_VERSION, 'all' );
 
 		}else {
 
 			// FontAwesome 3.2.1 -- support IE7, but lacks Vimeo
 			global $wp_styles;
-			wp_enqueue_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), MSI_VERSION, 'all' );
-			wp_enqueue_style( 'fontawesome-ie', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), MSI_VERSION );
+			wp_enqueue_style( 'fontawesome', '//stackpath.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', array(), MSI_VERSION, 'all' );
+			wp_enqueue_style( 'fontawesome-ie', '//stackpath.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css', array( 'fontawesome' ), MSI_VERSION );
 
 			// Internet Explorer conditional comment
 			$wp_styles->add_data( 'fontawesome-ie', 'conditional', 'IE 7' );
