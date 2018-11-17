@@ -46,6 +46,7 @@ class MSI_Frontend {
 	 * @var array links social site URLs with CSS classes for icons
 	 */
 	var $networks_latest = array(
+		'gitlab.com'         => array( 'name' => 'GitLab',         'class' => 'gitlab',         'icon' => 'fa fa-gitlab',         'icon-sign' => 'fa fa-envelope'       ),
 		'slideshare.net'     => array( 'name' => 'SlideShare',     'class' => 'slideshare',     'icon' => 'fa fa-slideshare',     'icon-sign' => 'fa fa-slideshare'     ),
 		'stackoverflow.com'  => array( 'name' => 'Stack Overflow', 'class' => 'stack-overflow', 'icon' => 'fa fa-stack-overflow', 'icon-sign' => 'fa fa-stack-overflow' ),
 		'stackexchange.com'  => array( 'name' => 'Stack Exchange', 'class' => 'stack-exchange', 'icon' => 'fa fa-stack-exchange', 'icon-sign' => 'fa fa-stack-exchange' ),
